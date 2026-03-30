@@ -1,4 +1,4 @@
-#  Manish Kumar🚀 — Portfolio Website
+# 🚀 Manish Kumar — Portfolio Website
 
 Personal developer portfolio built with pure **HTML, CSS & JavaScript** — no frameworks, no build tools.
 
@@ -11,20 +11,21 @@ manishkumarwebsite/
 │
 ├── assets/
 │   ├── css/
-│   │   ├── manish.css       
+│   │   ├── manish.css      
 │   │   ├── animations.css  
-│   │   └── components.css  
+│   │   └── components.css   
 │   │
 │   └── js/
-│       ├── cursor.js       
-│       ├── terminal.js    
-│       ├── scroll.js      
-│       └── modal.js       
+│       ├── cursor.js        
+│       ├── terminal.js      
+│       ├── scroll.js       
+│       └── modal.js        
 │
 └── config/
-    └── profile.js          
+    └── profile.js           ← All personal data (edit here to update site)
+```
 
-##  Features
+## ✨ Features
 
 - 🖥️ **3D Terminal** — Live typewriter code animation with mouse tilt
 - ✨ **Custom Cursor** — Glowing cyan dot + ring
