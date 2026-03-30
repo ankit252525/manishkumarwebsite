@@ -1,0 +1,81 @@
+/* ── components.css — Reusable UI Components ── */
+
+/* Section labels & titles */
+.section-label {
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px; color:var(--accent);
+  letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:12px;
+}
+.section-title {
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(32px,4vw,50px); font-weight:700;
+  color:#fff; margin-bottom:16px; line-height:1.1;
+}
+.section-title span {
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+
+/* Custom cursor */
+#cursor {
+  position:fixed; width:12px; height:12px;
+  background:var(--accent); border-radius:50%;
+  pointer-events:none; z-index:9999;
+  transition:transform 0.1s;
+  mix-blend-mode:difference;
+}
+#cursor-ring {
+  position:fixed; width:36px; height:36px;
+  border:1.5px solid var(--accent); border-radius:50%;
+  pointer-events:none; z-index:9998;
+  transition:all 0.15s ease; opacity:0.5;
+}
+
+/* Terminal code colors */
+.code-line {
+  display:block; white-space:nowrap;
+  opacity:0; animation:codeLine 0.3s ease forwards;
+}
+.c-cyan   { color:var(--accent); }
+.c-purple { color:#B08FFF; }
+.c-pink   { color:#FF79C6; }
+.c-green  { color:#50FA7B; }
+.c-orange { color:#FFB86C; }
+.c-grey   { color:rgba(255,255,255,0.35); }
+.c-white  { color:#fff; }
+.cursor-blink {
+  display:inline-block; width:8px; height:14px;
+  background:var(--accent); margin-left:2px;
+  animation:blink 1s infinite; vertical-align:middle;
+}
+
+/* Floating badges */
+.float-badge {
+  position:absolute;
+  background:rgba(5,5,16,0.9); border:1px solid;
+  border-radius:10px; padding:8px 14px;
+  font-size:12px; font-weight:600;
+  backdrop-filter:blur(10px);
+  animation:floatY 3s ease-in-out infinite;
+}
+.badge-1 { top:-14px; right:20px; border-color:rgba(0,245,255,0.4); color:var(--accent); animation-delay:0s; }
+.badge-2 { bottom:20px; left:-20px; border-color:rgba(123,47,255,0.4); color:#B08FFF; animation-delay:1.2s; }
+.badge-3 { top:50%; right:-18px; border-color:rgba(255,45,120,0.4); color:#FF79C6; animation-delay:0.6s; }
+
+/* Modal link cards */
+.modal-link {
+  display:flex; align-items:center; gap:14px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid; border-radius:11px; padding:14px 18px;
+  text-decoration:none; color:var(--text); transition:all 0.25s;
+}
+.modal-link:hover { background:rgba(0,245,255,0.06); }
+.modal-link-label { font-size:11px; font-family:'JetBrains Mono',monospace; margin-bottom:2px; }
+.modal-link-val { font-size:13px; font-weight:500; }
+
+/* Tag dot */
+.tag-dot {
+  width:6px; height:6px; background:var(--accent);
+  border-radius:50%; animation:pulse 2s infinite;
+}
