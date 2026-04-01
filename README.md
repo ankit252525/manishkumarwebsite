@@ -13,8 +13,8 @@ manishkumarwebsite/
 │   ├── css/
 │   │   ├── manish.css      
 │   │   ├── animations.css  
-│   │   └── components.css   
-│   │
+│   │   └── components.css
+│   │   └── mobile.css mobile interface ke liye best
 │   └── js/
 │       ├── cursor.js        
 │       ├── terminal.js      
