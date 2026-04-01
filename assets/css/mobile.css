@@ -1,0 +1,173 @@
+/* ════════════════════════════════════════
+   TABLET (max 1024px)
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-inner {
+    gap: 40px;
+  }
+  .hero-right {
+    width: 380px;
+    height: 320px;
+  }
+  .about-grid {
+    gap: 40px;
+  }
+}
+ 
+/* ════════════════════════════════════════
+   MOBILE (max 768px)
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+ 
+  /* Hide custom cursor on mobile */
+  #cursor, #cursor-ring { display: none; }
+  body { cursor: auto; }
+ 
+  /* ── NAVBAR ── */
+  nav { padding: 0 4%; }
+  .nav-links { display: none !important; }
+  .nav-inner { height: 60px; }
+  .nav-logo { font-size: 18px; }
+  .nav-cta { padding: 8px 16px; font-size: 12px; }
+ 
+  /* ── HERO ── */
+  #home {
+    padding: 80px 5% 50px;
+    min-height: 100svh;
+  }
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 36px;
+    justify-content: center;
+  }
+  .hero-left {
+    flex: none;
+    max-width: 100%;
+    order: 1;
+  }
+  .hero-tag {
+    font-size: 11px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+  }
+  .hero-name {
+    font-size: clamp(34px, 9vw, 52px);
+    margin-bottom: 6px;
+  }
+  .hero-role {
+    font-size: clamp(16px, 5vw, 24px);
+    margin-bottom: 16px;
+  }
+  .hero-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .hero-btns {
+    justify-content: center;
+    gap: 12px;
+  }
+  .btn-primary, .btn-outline {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+ 
+  /* Terminal — order 2, below text */
+  .hero-right {
+    order: 2;
+    width: 100%;
+    max-width: 420px;
+    height: 260px;
+    flex-shrink: 0;
+  }
+  .terminal-3d {
+    transform: none !important;
+  }
+  .float-badge { display: none; }
+ 
+  /* ── ABOUT ── */
+  #about { padding: 70px 5% 60px; }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    max-width: 100%;
+  }
+  .section-title { font-size: clamp(26px, 7vw, 38px); }
+  .about-text { font-size: 14px; }
+  .about-text p { margin-bottom: 14px; }
+  .info-chips { gap: 8px; }
+  .chip { font-size: 12px; padding: 5px 12px; }
+ 
+  /* Skills */
+  .skill-top { font-size: 12px; }
+ 
+  /* ── PROJECTS ── */
+  #projects { padding: 70px 5% 60px; }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 32px;
+  }
+  .project-card { padding: 22px 20px; }
+  .project-title { font-size: 17px; }
+  .project-desc { font-size: 13px; }
+ 
+  /* ── CERTIFICATIONS ── */
+  #certifications { padding: 60px 5%; }
+  .certs-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .cert-card { padding: 18px; }
+  .cert-name { font-size: 13px; }
+ 
+  /* ── CONNECT ── */
+  #connect { padding: 70px 5% 50px; }
+  .connect-sub { font-size: 14px; margin-bottom: 32px; }
+  .contact-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .contact-card {
+    padding: 14px 18px;
+    font-size: 13px;
+    justify-content: flex-start;
+  }
+ 
+  /* ── FOOTER ── */
+  footer { padding: 20px 5%; font-size: 12px; }
+ 
+  /* ── MODAL ── */
+  #hireModal > div:last-child {
+    padding: 28px 24px !important;
+    margin: 0 12px !important;
+  }
+ 
+  /* ── SECTION LABEL ── */
+  .section-label { font-size: 11px; letter-spacing: 2px; }
+ 
+  /* ── GLOW DIVIDER ── */
+  .glow-div { margin: 0 3%; }
+}
+ 
+/* ════════════════════════════════════════
+   SMALL MOBILE (max 400px)
+════════════════════════════════════════ */
+@media (max-width: 400px) {
+  .hero-name  { font-size: 32px; }
+  .hero-role  { font-size: 16px; }
+  .hero-right { height: 220px; }
+  .terminal-body { font-size: 10px; line-height: 1.7; }
+  .btn-primary, .btn-outline {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .hero-btns { flex-direction: column; }
+  .section-title { font-size: 26px; }
+}
+ 
