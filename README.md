@@ -22,7 +22,7 @@ manishkumarwebsite/
 │       └── modal.js        
 │
 └── config/
-    └── profile.js           ← All personal data (edit here to update site)
+    └── profile.js           
 ```
 
 ## ✨ Features
