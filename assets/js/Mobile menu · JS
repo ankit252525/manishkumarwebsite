@@ -1,0 +1,140 @@
+/* ── mobile-menu.js ──
+   1. Hamburger menu (3-line button) — opens nav drawer
+   2. Bouncing bubble — touch pe screen par bounce karta hai
+   Only runs on mobile (max 768px)
+*/
+
+(function () {
+  if (window.innerWidth > 768) return; // desktop pe kuch nahi
+
+  /* ════════════════════════════════
+     1. HAMBURGER BUTTON inject karo
+  ════════════════════════════════ */
+  const navInner = document.querySelector('.nav-inner');
+  const navCta   = document.querySelector('.nav-cta');
+
+  // 3-line button
+  const btn = document.createElement('button');
+  btn.id = 'hamburger-btn';
+  btn.setAttribute('aria-label', 'Open menu');
+  btn.innerHTML = '<span></span><span></span><span></span>';
+  btn.style.display = 'none'; // CSS will show it on mobile
+  navInner.insertBefore(btn, navCta);
+
+  // Drawer
+  const drawer = document.createElement('div');
+  drawer.id = 'mobile-nav-drawer';
+  const links = [
+    { label: 'Home',           icon: '🏠', id: 'home'           },
+    { label: 'About',          icon: '👨‍💻', id: 'about'          },
+    { label: 'Projects',       icon: '🚀', id: 'projects'       },
+    { label: 'Certifications', icon: '🏆', id: 'certifications' },
+    { label: 'Connect',        icon: '💬', id: 'connect'        },
+  ];
+  links.forEach(({ label, icon, id }) => {
+    const a = document.createElement('a');
+    a.href = '#' + id;
+    a.innerHTML = `<span class="nav-icon">${icon}</span>${label}`;
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      closeDrawer();
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 60;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+    drawer.appendChild(a);
+  });
+  document.body.appendChild(drawer);
+
+  function openDrawer()  { btn.classList.add('open');    drawer.classList.add('open');    }
+  function closeDrawer() { btn.classList.remove('open'); drawer.classList.remove('open'); }
+  function toggleDrawer(){ btn.classList.contains('open') ? closeDrawer() : openDrawer(); }
+
+  btn.addEventListener('click', toggleDrawer);
+  // Close on outside tap
+  document.addEventListener('touchstart', e => {
+    if (!drawer.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+      closeDrawer();
+    }
+  });
+
+  /* ════════════════════════════════
+     2. BOUNCING BUBBLE
+  ════════════════════════════════ */
+  const bubble = document.createElement('div');
+  bubble.id = 'mobile-bubble';
+  document.body.appendChild(bubble);
+
+  const W = () => window.innerWidth;
+  const H = () => window.innerHeight;
+  const R = 10; // radius
+
+  let bx = W() / 2, by = H() / 2;
+  let vx = 3.5, vy = 3.5;
+  let tx = bx, ty = by;     // target (touch position)
+  let touching = false;
+  let visible = false;
+  let raf;
+
+  function showBubble() {
+    if (!visible) {
+      bubble.style.display = 'block';
+      visible = true;
+    }
+  }
+
+  function animateBubble() {
+    if (touching) {
+      // Chase finger smoothly
+      bx += (tx - bx) * 0.18;
+      by += (ty - by) * 0.18;
+    } else {
+      // Free bounce
+      bx += vx;
+      by += vy;
+
+      if (bx <= R || bx >= W() - R) {
+        vx *= -1;
+        bx = bx <= R ? R : W() - R;
+        bubble.style.transform = 'scale(1.4)';
+        setTimeout(() => bubble.style.transform = 'scale(1)', 120);
+      }
+      if (by <= R || by >= H() - R) {
+        vy *= -1;
+        by = by <= R ? R : H() - R;
+        bubble.style.transform = 'scale(1.4)';
+        setTimeout(() => bubble.style.transform = 'scale(1)', 120);
+      }
+    }
+
+    bubble.style.left = (bx - R) + 'px';
+    bubble.style.top  = (by - R) + 'px';
+    raf = requestAnimationFrame(animateBubble);
+  }
+
+  // Show bubble on first touch
+  document.addEventListener('touchstart', e => {
+    showBubble();
+    touching = true;
+    const t = e.touches[0];
+    tx = t.clientX; ty = t.clientY;
+    bx = tx; by = ty;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', e => {
+    const t = e.touches[0];
+    tx = t.clientX; ty = t.clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    touching = false;
+    // Give it a random velocity after finger lifts
+    vx = (Math.random() * 4 + 2) * (Math.random() > 0.5 ? 1 : -1);
+    vy = (Math.random() * 4 + 2) * (Math.random() > 0.5 ? 1 : -1);
+  });
+
+  animateBubble();
+
+})();
