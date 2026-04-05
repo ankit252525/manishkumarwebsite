@@ -85,7 +85,7 @@
   .glow-div { margin: 0 3%; }
 
   /* Floating badges hide on mobile */
-  .float-badge { display: none !important; }
+
 }
 
 /* ── SMALL MOBILE (max 400px) ── */
@@ -98,3 +98,9 @@
   .photo-glow-wrap { width: 170px; height: 200px; }
   .photo-3d-card   { width: 155px; height: 185px; }
 }
+
+  /* Badges visible on mobile — smaller size */
+  .float-badge { font-size: 10px !important; padding: 5px 10px !important; }
+  .badge-1 { top: -12px !important; right: 8px !important; }
+  .badge-2 { bottom: 8px !important; left: -8px !important; }
+  .badge-3 { top: 44% !important; right: -8px !important; }
